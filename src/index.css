@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   AESTHETIC MEDICAL — WHITE & BLUE DESIGN SYSTEM
+   SunoDawa — Clean Clinical Dashboard
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary:     #F0F6FF;
+  --bg-surface:     #FFFFFF;
+  --bg-elevated:    #E8F1FC;
+  --bg-deep:        #D6E8FA;
+
+  /* Medical Blue Palette */
+  --blue-primary:   #1A6FDB;
+  --blue-deep:      #0B4EA8;
+  --blue-light:     #4CA3F5;
+  --blue-pale:      #EBF3FF;
+  --blue-mid:       #2D8EF0;
+  --blue-glow:      rgba(26, 111, 219, 0.15);
+
+  /* Accent Colors */
+  --green-health:   #16C784;
+  --green-light:    #D1FAE5;
+  --amber-warn:     #F59E0B;
+  --amber-light:    #FEF3C7;
+  --red-danger:     #EF4444;
+  --red-light:      #FEE2E2;
+  --purple-accent:  #7C3AED;
+  --purple-light:   #EDE9FE;
+
+  /* Text Colors */
+  --text-primary:   #0D1B3E;
+  --text-secondary: #375A87;
+  --text-muted:     #94A8C3;
+  --text-inverse:   #FFFFFF;
+
+  /* Glass/Card Styles */
+  --card-bg:        rgba(255,255,255,0.95);
+  --card-border:    rgba(26, 111, 219, 0.12);
+  --card-shadow:    0 2px 12px rgba(26, 111, 219, 0.08), 0 1px 3px rgba(0,0,0,0.04);
+  --card-hover:     0 4px 20px rgba(26, 111, 219, 0.15), 0 2px 6px rgba(0,0,0,0.06);
+
+  /* Fonts */
+  --font-display:   'Outfit', sans-serif;
+  --font-body:      'Inter', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  /* Legacy compat aliases */
+  --cyan-bright:    var(--blue-primary);
+  --cyan-mid:       var(--blue-mid);
+  --bio-green:      var(--green-health);
+  --med-amber:      var(--amber-warn);
+  --med-red:        var(--red-danger);
+  --med-purple:     var(--purple-accent);
+  --glass-bg:       var(--card-bg);
+  --glass-border:   var(--card-border);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background: var(--bg-primary);
+  }
+
+  body {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: var(--bg-primary);
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+}
+
+/* ============================================
+   MEDICAL CARD SYSTEM
+   ============================================ */
+.glass-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.glass-card:hover {
+  border-color: rgba(26, 111, 219, 0.3);
+  box-shadow: var(--card-hover);
+  transform: translateY(-1px);
+}
+
+.card-blue {
+  background: linear-gradient(135deg, #1A6FDB 0%, #0B4EA8 100%);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(26, 111, 219, 0.35);
+}
+
+.card-surface {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-deep) 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  font-family: var(--font-body);
+  min-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(26, 111, 219, 0.4);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(26, 111, 219, 0.5);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: scale(0.97); }
+
+/* Alias for legacy code — same as btn-primary */
+.btn-cyan {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-deep) 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  font-family: var(--font-body);
+  min-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(26, 111, 219, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background: var(--blue-pale);
+  color: var(--blue-primary);
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid rgba(26, 111, 219, 0.25);
+  font-family: var(--font-body);
+  min-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background: rgba(26, 111, 219, 0.12);
+  border-color: var(--blue-primary);
+}
+.btn-secondary:active { transform: scale(0.97); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue-primary);
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1.5px solid var(--card-border);
+  font-family: var(--font-body);
+  min-height: 44px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  background: var(--blue-pale);
+  border-color: rgba(26, 111, 219, 0.3);
+}
+.btn-ghost:active { transform: scale(0.97); }
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-glow {
+  color: var(--blue-primary);
+}
+.text-glow-green { color: var(--green-health); }
+.text-glow-purple { color: var(--purple-accent); }
+
+/* ============================================
+   LAYOUT SYSTEM
+   ============================================ */
+.safe-top    { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Mobile-first page container */
+.page-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .app-layout {
+    flex-direction: row;
+  }
+  .page-container {
+    padding-bottom: 32px;
+  }
+  .main-content-area {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-content-area { max-width: 1100px; }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 111, 219, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 111, 219, 0.4);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26, 111, 219, 0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(26, 111, 219, 0); }
+}
+
+@keyframes scanRing {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.3); }
+  50%       { transform: scaleY(1); }
+}
+
+@keyframes fabPulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes float-up {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scaleX(1); }
+  50%       { transform: scaleX(1.02); }
+}
+
+@keyframes rippleExpand {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); }
+  50%       { background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.6); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slideUp {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Named animation classes */
+.scan-ring       { animation: scanRing 3s linear infinite; }
+.fab-pulse-ring  { animation: fabPulse 2s ease-out infinite; }
+.success-ripple  { animation: rippleExpand 0.6s ease-out forwards; }
+.emergency-pulse { animation: emergencyPulse 1s ease-in-out infinite; }
+
+/* ============================================
+   WAVEFORM BARS
+   ============================================ */
+.waveform-bar {
+  display: inline-block;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--blue-primary);
+  animation: waveBar 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* ============================================
+   STATUS VARIANTS
+   ============================================ */
+.glass-purple {
+  background: var(--purple-light);
+  border: 1.5px solid rgba(124, 58, 237, 0.2);
+  border-radius: 16px;
+}
+
+.glass-green {
+  background: var(--green-light);
+  border: 1.5px solid rgba(22, 199, 132, 0.25);
+  border-radius: 12px;
+}
+
+.glass-amber {
+  background: var(--amber-light);
+  border: 1.5px solid rgba(245, 158, 11, 0.3);
+  border-radius: 12px;
+}
+
+.glass-red {
+  background: var(--red-light);
+  border: 1.5px solid rgba(239, 68, 68, 0.25);
+  border-radius: 12px;
+}
+
+/* ============================================
+   DOCTOR / CONSULTATION SCREEN
+   ============================================ */
+.doctor-screen-bg {
+  background: linear-gradient(180deg, #EBF3FF 0%, #F0F6FF 100%);
+}
+
+/* ============================================
+   INPUT STYLES
+   ============================================ */
+input:focus, textarea:focus {
+  outline: 2px solid rgba(26, 111, 219, 0.4);
+  outline-offset: 0;
+}
+
+/* ============================================
+   MEDICAL BADGE
+   ============================================ */
+.badge-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--blue-pale);
+  border: 1px solid rgba(26, 111, 219, 0.2);
+  color: var(--blue-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--green-light);
+  border: 1px solid rgba(22, 199, 132, 0.25);
+  color: var(--green-health);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--red-light);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--red-danger);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ============================================
+   MISC UTILITY
+   ============================================ */
+.border-glow {
+  box-shadow: 0 0 0 2px rgba(26, 111, 219, 0.25);
+}
+
+.card-hover-blue:hover {
+  background: var(--blue-pale);
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
